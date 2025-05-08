@@ -85,9 +85,12 @@ class TodoPage extends StatelessWidget {
                                   date: seletedDate.selectedDate!,
                                 )
                               );
+                              _controller.clear();
+                              seletedDate.selectedDate = null;
                             }
                           }
-                        }
+                        }, 
+                        child: Text('Tambah')
                       )
                     ]
                   )
