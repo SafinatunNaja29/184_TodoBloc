@@ -22,16 +22,23 @@ class TodoPage extends StatelessWidget {
                       children: [
                         Text('Selected Date'),
                         BlocBuilder<TodoBloc, TodoState>(
-                          builder: (context, state)
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ]
-            )
-        )
-      )
+                          builder: (context, state) {
+                            if (state is TodoLoaded && state.selectedDate != null) {
+                              return Text(
+                                '${state.selectedDate!.day}/${state.selectedDate!.month}/${state.selectedDate!.year}',
+                              );
+                            }
+                            return Text('No date selected');
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+        ),
+      ),
     );
   } 
 }
